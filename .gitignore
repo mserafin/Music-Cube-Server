@@ -1,0 +1,4 @@
+.vscode
+_logs
+node_modules
+yarn-error.log
