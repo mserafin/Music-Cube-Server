@@ -1,17 +1,18 @@
+/* eslint-disable no-return-await */
 const fetch = require('node-fetch');
 const method = require('./method');
 const AccessTokenException = require('./exception/access-token-exception');
 const settings = require('../settings');
 
 const spotify = (authorization) => {
-    const fetchData = async (path, method, body) => {
+    const fetchData = async (path, type, body) => {
         const accessToken = await authorization.getAccessToken();
         if (!accessToken) {
             throw new AccessTokenException('Redirecting the request after the access token');
         }
 
         let options = {
-            method,
+            method: type,
             headers: {
                 Accept: 'application/json',
                 'Content-Type': 'application/json',
@@ -19,7 +20,7 @@ const spotify = (authorization) => {
             }
         };
 
-        if (!!body && !~[method.GET, method.HEAD].indexOf(method)) {
+        if (!!body && !~[method.GET, method.HEAD].indexOf(type)) {
             options = { ...options, ...{ body: JSON.stringify(body) } };
         }
 

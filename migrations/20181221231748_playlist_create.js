@@ -1,3 +1,4 @@
+/* eslint-disable no-return-await */
 
 exports.up = async knex => await knex.schema.createTable('playlist', (table) => {
     table.increments('playlistId');

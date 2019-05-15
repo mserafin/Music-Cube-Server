@@ -2,3 +2,5 @@
 _logs
 node_modules
 yarn-error.log
+settings.js
+db.sqlite
