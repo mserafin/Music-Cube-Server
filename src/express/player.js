@@ -6,7 +6,7 @@ const db = require('../database');
 
 const storage = {};
 
-const isPresentOrElseThrow = (isValid) => {
+const ifPresentOrElseThrow = (isValid) => {
     if (!isValid()) {
         throw new CubeBadRequestException('Invalid request syntax');
     }
@@ -18,7 +18,7 @@ const executeAsync = (res, isValid, fn) => {
     let response = { status: 202, message: '' };
 
     try {
-        isPresentOrElseThrow(() => isValid);
+        ifPresentOrElseThrow(() => isValid);
         setTimeout(fn, 0);
     } catch (ex) {
         response = {
