@@ -20,7 +20,7 @@
   "dependencies": {
     "bookshelf": "^0.15.1",
     "express": "^4.17.1",
-    "knex": "^0.19.1",
+    "knex": "^0.19.5",
     "node-fetch": "^2.6.0",
     "simple-oauth2": "^2.2.1"
   }
